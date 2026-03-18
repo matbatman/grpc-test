@@ -2,5 +2,10 @@
 
 генерация
 ```sh
-protoc   --go_out=.   --go-grpc_out=.   proto/hello.proto
+protoc \
+  -I api/proto \
+  --go_out=api/gen --go_opt=paths=source_relative \
+  --go-grpc_out=api/gen --go-grpc_opt=paths=source_relative \
+  api/proto/hello.proto
+
 ```
